@@ -17,7 +17,8 @@ app.post('/', function(req,res) {
     var res_obj = {
         SN: "B40KAB841VCXKEY",
         ack: true
-    }
+    };
+    
     res.send(res_obj);
 });
 
