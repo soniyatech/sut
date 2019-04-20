@@ -1,7 +1,10 @@
-/* Product: LBS tracking server
-* Author:   Wayne
-* Date:     2019-04-09
-* Change log: 
+/* 
+* Project:          unitedtracking.com
+* Description:      using Nodejs/Express
+* Author:           Wayne
+* Creation Date:    2019-04-09
+* Change Log:       2019-04-15  initial base 4170CTO
+*   
 */
 
 // configurations
@@ -11,38 +14,41 @@ var http_port = 3000;
 var express = require('express');
 var app = express();
 app.use(express.json());
+var axios = require('axios');
 
-// routing
+// Express routing
 app.get('/', function(req,res) {
     console.log("Server recieved a GET@/");
-    res.send('Server responding to your GET/ \r\n');
+    console.log(req.body);
 });
 
-app.post('/', function(req,res) {
-    console.log("Server recieved a POST@/, request body: \r\n");
+// 
+app.post('/device', function(req,res) {
+    console.log("Server recieved a POST@/device:\r\n");
     console.log(req.body);
-    console.log(req.hostname);
-    console.log(req.ip);
 
-    var res_obj = {
-        device_SN: "B40KAB841VCXKEY",
+    var ack_obj = {
         ack: true
     };
-    
-    res.send(res_obj);
+    res.send(ack_obj);
 });
 
-app.put('/', function(req,res) {
-    console.log("Server recieved a PUT@/");
-    res.send('Server responding to your PUT/ \r\n');
+app.put('/device', function(req,res) {
+    console.log("Server recieved a PUT@/device:\r\n");
+    console.log(req.body);
+
+    var ack_obj = {
+        ack: true
+    }
+    res.send(ack_obj);
 });
 
 app.delete('/', function(req,res) {
     console.log("Server recieved a DELETE@/");
-    res.send('Server responding to your DELETE/ \r\n');
+    console.log(req.body);
 });
 
-// start http server
-app.listen(PORT, function () {
+// start a http server
+app.listen(http_port, function () {
     console.log("Listening on port %s", http_port);
 });
