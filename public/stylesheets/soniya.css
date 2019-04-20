@@ -1,0 +1,247 @@
+/*
+ * Globals
+ * Modified by Frances 2014-02-26
+ */
+
+/* Links */
+a {
+  color: #fff;
+}
+a:focus,
+a:hover {
+  color: #ff1800;
+}
+
+/*
+ * Base structure
+ */
+
+html,
+body {
+  background-color: #555;
+}
+body{
+  color: #eee;
+  padding-top: 70px;
+}
+select, input {
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+  -webkit-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+  transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+  display: inline-block;
+  width: auto;
+  height: 34px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #555;
+  vertical-align: middle;
+  padding: 0 5px;
+}
+input[type=radio], input[type=checkbox],
+.form-horizontal .checkbox-inline {
+  vertical-align: middle;
+}
+.margin-bt {
+  margin-bottom:15px;
+}
+.margin-zero {
+  margin:0;
+}
+.locator-relative {
+  position: relative;
+}
+.chk-margin-left {
+  margin-left:15px !important;
+}
+.padding-zero {
+  padding:0;
+}
+.list-group-title {
+  background-color: #d9edf7;
+  border-color: #bce8f1;
+  background-image: linear-gradient(to bottom,#d9edf7 0,#c4e3f3 100%);
+  background-repeat: repeat-x;
+  color: #31708f;
+  font-weight: bold;
+}
+a.list-group-item:hover{
+  text-shadow: 0 -1px 0 #3071a9;
+  background-color: #428bca;
+  background-image: -webkit-linear-gradient(top,#428bca 0,#3278b3 100%);
+  background-image: linear-gradient(to bottom,#428bca 0,#3278b3 100%);
+  background-repeat: repeat-x;
+  border-color: #428bca;
+  color: #fff;
+}
+.jumbotron {
+  color: #333;
+}
+.container .jumbotron {
+  padding: 20px;
+}
+.jumbotron .form-horizontal .form-control-static {
+  padding-top: 7px;
+}
+.guide-title {
+  color: #777;
+  padding-left:15px;
+}
+.table-striped > thead > tr > td,
+.table-striped > thead > tr > th {
+  background-color: #333;
+}
+.table-striped > tbody > tr > td,
+.table-striped > tbody > tr > th {
+  background-color: #555;
+}
+.table-striped > tbody > tr:nth-child(odd) > td,
+.table-striped > tbody > tr:nth-child(odd) > th {
+  background-color: #444;
+}
+.table-hover > tbody > tr:hover > td,
+.table-hover > tbody > tr:hover > th {
+  background-color: #777;
+}
+.page-title-h2 {
+  font-size: 30px;
+  font-weight: 500;
+}
+.panel{
+  background-color: inherit;
+}
+.result-panel .panel-content{
+  padding: 15px;
+}
+.result-panel .panel-content .panel {
+  line-height: 1;
+  margin:0;
+}
+.result-header {
+  font-size: 24px;
+}
+.embedded-map {
+  width: 100%;
+  height: 400px;
+}
+.embedded-map-info-panel {
+  overflow-y: auto;
+  overflow-x: hidden;
+  background-color: #555;
+  height: 400px;
+  width: 100%;
+}
+.table-history > .form-group,
+.table-history > .form-group > label {
+  margin:0;
+  padding:0;
+}
+.panel .btn-action{
+  margin:10px;
+}
+.modal > * {
+  color: #333;
+}
+.color-red {
+  color: #a94442;
+}
+.playback-panel-footer {
+  background-color: #d9edf7;
+  border-color: #bce8f1;
+  background-image: -webkit-linear-gradient(top,#d9edf7 0,#c4e3f3 100%);
+  background-image: linear-gradient(to bottom,#d9edf7 0,#c4e3f3 100%);
+  background-repeat: repeat-x;
+  color: #31708f;
+  /*height: 50px;*/
+}
+.playback-map {
+ position: inherit;
+  width: 100%;
+  height: 450px;
+}
+.playback-map-panel {
+  /*position: relative;
+  background-image: -webkit-linear-gradient(top,#3c3c3c 0,#333 100%);
+  background-image: linear-gradient(to bottom,#3c3c3c 0,#333 100%);
+  background-repeat: repeat-x;
+  */
+  position: absolute;
+  background-color: #555;
+  background-color: rgba(0,0,0,0.75);
+  bottom: 0;
+  padding: 3px 10px;
+  width: 100%;
+  z-index: 1005;
+}
+.playback-map-panel .content-text {
+  color: #2cd3fe;
+}
+.playback-device {
+font-size: 16px;
+line-height: 2.1;
+}
+/*
+ * Header
+ */
+.navbar .navbar-brand {
+  font-weight: bold;
+  color: white;
+}
+.navbar-collapse{
+  max-height: inherit;
+}
+.navbar-collapse.in {
+  overflow-y: hidden;
+}
+.navbar-nav > li > a {
+  padding-left:5px;
+  padding-right:8px;
+}
+.navbar-nav > li > a:hover {
+  background-color: #111 !important;
+}
+.admin {
+  color: #c12e2a;
+}
+.split{
+  margin-top: 15px;
+  color: #777;
+  font-size: large;
+  width: 1px;
+  height: 20px;
+  border-right: 1px solid;
+}
+
+/* header color */
+.navbar-inverse {
+background-image: linear-gradient(to bottom,#3c3c3c 0,#222 100%);
+background-color: #222;
+border-color: #080808;
+}
+
+/*
+ * Footer
+ */
+footer {
+  margin: 0 auto;
+  padding: 0;
+  width: 100%;
+  height: 20px;
+  text-align: center;
+  color: #aaa;
+}
+footer > hr {
+  margin: 5px 0;
+}
+footer > a {
+  text-decoration:underline;
+}
+/* OSM footer in map */
+.olControlAttribution {
+  left: 3px;
+  bottom: 0.3em !important;
+}

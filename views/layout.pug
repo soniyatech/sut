@@ -1,0 +1,140 @@
+doctype html
+html
+  head
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    //title=#{title}
+    // stylesheet
+    link(rel='stylesheet', href='../stylesheets/layout_bootstrap.css')
+    // jquery
+    script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js")
+    // jquery ui
+    link(rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css")
+    script(src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js")
+    // boostrap: Latest compiled and minified CSS
+    link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous")
+    // boostrap: Optional theme
+    link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous")
+    // boostrap: Latest compiled and minified JavaScript
+    script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous")
+    // font awesome
+    script(src="https://use.fontawesome.com/91828dad67.js")
+    // Heremaps js api
+    link(rel="stylesheet" type="text/css" href="https://js.api.here.com/v3/3.0/mapsjs-ui.css")
+    script(src="https://js.api.here.com/v3/3.0/mapsjs-core.js")
+    script(src="https://js.api.here.com/v3/3.0/mapsjs-service.js")
+    script(src="https://js.api.here.com/v3/3.0/mapsjs-ui.js")
+    script(src="http://js.api.here.com/v3/3.0/mapsjs-pano.js")
+    script(src="https://js.api.here.com/v3/3.0/mapsjs-mapevents.js")
+    // socket.io
+    //script(src="https://cdn.socket.io/socket.io-1.4.5.js")
+    script(src="/socket.io/socket.io.js")
+    // userinfo.io
+    script(src="http://cdnjs.cloudflare.com/ajax/libs/userinfo/1.1.0/userinfo.min.js")
+
+body
+    
+    div
+      include ./header
+    //- div
+    //-   block content
+    //-   h1= page_title
+    //-   p Welcome to #{page_title}. This is page body paragraph text.
+      
+    div(id="map", style="width: 100%; height: 600px; background: grey")
+      
+      script.
+
+        // Boilerplate map initialization code starts below:
+        //Step 1: initialize communication with the platform
+        var platform = new H.service.Platform({
+          app_id: 'GIB7YigM5rjI7qEinRtL',
+          app_code: '73DjTTe6E_LAa-ItK2qz2g',
+          useCIT: true,
+          useHTTPS: true
+        });
+        // Create default map layers:
+        var defaultLayers = platform.createDefaultLayers();
+        
+        //Step 2: initialize a map  - not specificing a location will give a whole world view.
+        var map = new H.Map(document.getElementById('map'), defaultLayers.normal.map);
+
+        //Step 3: make the map interactive
+        // MapEvents enables the event system
+        // Enable the event system on the map instance:
+        var mapEvents = new H.mapevents.MapEvents(map);
+        // Add event listener:
+        map.addEventListener('tap', function(evt) {
+          var bubble = new H.ui.InfoBubble({ lng: lng_0, lat: lat_0 }, {content: '<b>here</b>'});
+          ui.addBubble(bubble);
+        });
+        // Instantiate the default behavior, providing the mapEvents object: 
+        var behavior = new H.mapevents.Behavior(mapEvents);
+        
+        //Step 4: Create the default UI components
+        var ui = H.ui.UI.createDefault(map, defaultLayers);
+        var mapSettings = ui.getControl('mapsettings');
+        mapSettings.setAlignment('top-right');
+        var panorama = ui.getControl('panorama');
+        panorama.setAlignment('top-right');
+        platform.configure(H.map.render.panorama.RenderEngine)
+        var zoom_control = ui.getControl('zoom');
+        zoom_control.setAlignment('top-right');
+        ui.setUnitSystem(H.ui.UnitSystem.IMPERIAL);
+        //var scalebar = ui.getControl('scalebar');
+        //scalebar.setAlignment('top-left');
+        
+        // initial map upon login or refresh
+        var lat_0 = #{lat};
+        var lng_0 = #{lng};
+        var zoom = #{zm};
+        
+        // Moves the map to display over
+        function moveMapToSubject(map){
+          map.setCenter({lat:lat_0, lng:lng_0});
+          map.setZoom(zoom);
+        };
+        
+        // Show marker at specified location
+        function addMarkersToMap(map) {
+          var position_0 = new H.map.Marker({lat:lat_0, lng:lng_0});
+          map.addObject(position_0);
+          //var position_1 = new H.map.Marker({lat:37.379322, lng: -121.941046});
+          //map.addObject(position_1);
+          //var position_2 = new H.map.Marker({lat:52.5166, lng:13.3833});
+          //map.addObject(position_2);
+          //var position_3 = new H.map.Marker({lat:40.4, lng: -3.6833});
+          //map.addObject(position_3);
+          //var position_4 = new H.map.Marker({lat:51.5008, lng:-0.1224});
+          //map.addObject(position_4);
+        };
+        
+        //Step 4: Now use the map as required...
+        moveMapToSubject(map);
+        addMarkersToMap(map);
+        
+        // userinfo.io
+        var user_info;
+        UserInfo.getInfo(function(data) {
+          user_info = data;
+        }, function(err) {
+          user_info = {userinfo: "error"};
+        });
+
+        // socket.io
+        var socket = io('http://localhost:3000');
+        socket.on('connected', function (data) {
+          socket.emit('broswer greeting app', user_info);
+        });
+        socket.on('new reading to broswer', function (reading) {
+          socket.emit('broswer processing reading', reading);
+          if (reading.ACQUSITION) {
+            lat_0 = reading.LATITUDE;
+            lng_0 = reading.LONGITUDE;
+            map.setCenter({lat:lat_0, lng:lng_0});
+            addMarkersToMap(map);
+          }
+        });
+
+        
+    div
+      include ./footer

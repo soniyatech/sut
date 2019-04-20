@@ -1,0 +1,89 @@
+/*
+ * Globals
+ * Modified by Frances 2014-03-24
+ */
+/* Links */
+a {
+  color: #aaa;
+  text-decoration:underline;
+}
+a:focus,
+a:hover {
+  color: #fff;
+}
+/*
+ * Base structure
+ */
+html,
+body {
+  height: 100%;
+  text-align: center;
+  color: #aaa;
+  background: #252F4E;
+  background-image: -webkit-linear-gradient(top,#3C4560 0,#252F4E 100%);
+  background-image: linear-gradient(to bottom,#3C4560 0,#252F4E 100%);
+  background-repeat: repeat-x;
+}
+.login-bg-image {
+  background-image: url('../images/loginbak.gif');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+h3 {
+  color: #fff;
+}
+.root-wrapper {
+  min-height: 100%;
+  margin: 0 auto -25px;
+}
+.login-content {
+  width:250px;
+  margin: 0 auto;
+}
+.input-group > input {
+  font-size: 16px;
+  height: 40px;
+}
+.form-group .input-group:first-child > span {
+  border-bottom-left-radius: 0;
+}
+.form-group .input-group:first-child > input {
+  border-bottom-right-radius: 0;
+  border-left: 0;
+}
+.form-group .input-group:last-child > span {
+  border-top-left-radius: 0;
+  border-top: 0;
+}
+.form-group .input-group:last-child > input {
+  border-top-right-radius: 0;
+  border-top: 0;
+  border-left: 0;
+}
+.margin-vertical {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.logo-version{
+  text-align: right;
+  float: right!important;
+}
+/*
+ * Header
+ */
+header {
+  padding-top: 70px;
+  padding-bottom: 10px;
+}
+/*
+ * Footer
+ */
+footer {
+  background: #252F4E;
+  height: 25px;
+  text-align: center;
+  color: #777;
+}
+.push {
+  height: 40px;
+}

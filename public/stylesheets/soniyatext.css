@@ -1,0 +1,82 @@
+/*
+ * Globals
+ * Modified by Frances 2014-02-26
+ */
+
+/* Links */
+a {
+  color: #fff;
+}
+a:focus,
+a:hover {
+  color: #ff1800;
+}
+/*
+ * Base structure
+ */
+
+html,
+body {
+  background-color: #555;
+}
+body{
+  padding-top: 50px;
+  color: #eee;
+  margin: 0 10px;
+}
+.panel .table>thead>tr>th, .panel .table>tbody>tr>td {
+  font-size: 12px;
+  padding: 0;
+}
+.table-striped > thead > tr > td:first-child,
+.table-striped > thead > tr > th:first-child,
+.table-striped > tbody > tr > td:first-child,
+.table-striped > tbody > tr > th:first-child {
+  padding-left: 15px;
+}
+
+.table-striped > thead > tr > td,
+.table-striped > thead > tr > th {
+  background-color: #333;
+}
+.table-striped > tbody > tr > td,
+.table-striped > tbody > tr > th {
+  background-color: #555;
+}
+.table-striped > tbody > tr:nth-child(odd) > td,
+.table-striped > tbody > tr:nth-child(odd) > th {
+  background-color: #444;
+}
+.table-hover > tbody > tr:hover > td,
+.table-hover > tbody > tr:hover > th {
+  background-color: #777;
+}
+
+/*
+ * Header
+ */
+.navbar .navbar-brand {
+  font-weight: bold;
+  color: white;
+}
+.navbar-collapse.in {
+  overflow-y: hidden;
+}
+.navbar-nav > li > a {
+  padding-left:5px;
+  padding-right:8px;
+}
+.navbar-nav > li > a:hover {
+  background-color: #111 !important;
+}
+.admin {
+  color: #c12e2a;
+}
+.split{
+  margin-top: 15px;
+  color: #777;
+  font-size: large;
+  width: 1px;
+  height: 20px;
+  border-right: 1px solid;
+}

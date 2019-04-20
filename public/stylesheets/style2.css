@@ -1,0 +1,291 @@
+/* General style -- for all pages */
+body {
+	background-color: #252F4E;
+	margin-top: 0px;
+	margin-left: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	padding-top: 0px;
+	padding-bottom: 0px;
+	padding-left: 0px;
+	padding-right: 0px;
+}
+img{
+  border-width: 0px;
+  margin: 0px;
+  padding: 0px;
+}
+table {
+  border: 0; 
+  border-collapse: collapse; 
+  border-spacing: 0; 
+  padd:expression(this.cellPadding=0); 
+}
+th,td { 
+ padding: 0; 
+}
+p { /* to make it look the same in IE/FireFox */
+  margin: 0px;
+  margin-bottom: 10px;
+  line-height: 20px;
+}
+div{
+}
+
+.page-footer {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: x-small;
+	text-align: center;
+	vertical-align: center;
+	color: #CCCCCC;
+	height: 20px;
+}
+.page-footer a:link {
+	color: #CCCCCC;
+	text-decoration: none;
+}
+.page-footer a:visited {
+	color: #CCCCCC;
+	text-decoration: none;
+}
+
+/* login page */
+.login-title {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: large;
+	color: #FFFFFF;
+}
+.login-info {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: small;
+	color: #CCCCCC;
+}
+.login-info a:link {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: small;
+	color: #CCCCCC;
+}
+.login-subtitle {
+	font-family: "Courier New", Courier, mono;
+	font-size: small;
+	font-weight: bold;
+	color: #FFFFFF;
+}
+.td_login_bg {
+  height: 400px;
+  width: 720px;
+  vertical-align: top;
+  text-align: center;
+  background-image: url(../images/loginbak.gif);
+  background-position: 0 -20px;
+  background-repeat:no-repeat;
+}
+.window_logininfo {
+  width:250px; 
+  OVERFLOW: auto; 
+  margin-top: 40px;
+  margin-bottom: 0px;
+  margin-left: 0px;
+  margin-right: 0px;
+  padding: 10px; 
+  padding-left: 30px; 
+  border-top-width: 0px;
+  border-left-width: 0px;
+  border-bottom-width: 0px;
+  border-right-width: 1px; 
+  border-color: #999999; 
+  border-style: dotted;  
+}
+.window_logo {
+  width: 250px; 
+  OVERFLOW: auto; 
+  margin-top: 50px;
+  margin-left: 30px; 
+  margin-bottom: 0px;
+  margin-right: 0px;
+  padding-top: 140px;
+  padding-left: 10px; 
+  border-width: 0px; 
+  background-image: url(../images/satellite1.gif);
+  background-repeat: no-repeat;
+}
+
+/* map & live pages */
+.page-header {
+	height: 60px;
+	background-image: url(../images/logo-header.gif);
+	background-repeat:no-repeat;
+	vertical-align: bottom;
+}
+.table_main {
+  width: 950px;
+  /*width: expression((screen.width-200)+"px");*/
+  height: 100%; 
+  /*text-align: left;*/
+}
+.td_edge {
+  width: 30px;
+}
+.td_bar {
+	height: 19px;
+	background-image: url(../images/bar.gif); 
+}
+.td_map {
+  width: 890px; /* should be changed with .table_main.width(-60px) */
+  height: 500px;
+  vertical-align: top;
+}
+
+.userid {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: x-small;
+	font-weight: bold;
+	color: #FFFFFF;
+	width: 350px;
+	height: 19px;
+	OVERFLOW: auto;
+
+	position:relative;
+
+	margin-top: 0px;
+	margin-left: 0px;
+	margin-right: 230px;
+	margin-bottom: 0px; 
+	padding-top: 3px; 
+	padding-left: 5px; 
+	border:0px;
+}
+.panel-control {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: x-small;
+	color: #FFFFFF;
+	width: 110px;
+	height: 19px;
+	position:relative;
+	z-index:10;
+	top: -19px;  /* should be changed with .td_bar.height(-.Td_bar.height) */
+	left: 585px; /* should be changed with .window_map.width(-305px) */
+ }
+.panel-control a:link {
+	color: #FFFFFF;
+	text-decoration: none;
+ }
+.panel-control a:visited {
+	color: #FFFFFF;
+	text-decoration: none;
+ }
+.window_map{
+	height: 500px; /* should be changed with .td_map.height */
+	width: 890px;  /* should be changed with .td_map.width */
+	/*OVERFLOW: auto;*/
+	position: absolute;
+	margin: 0px; 
+	margin-left: 0px; 
+	margin-right: 230px; 
+	margin-bottom: 0px; 
+	background-color: #FFFFFF; 
+	background-image: url(../images/Loading-Map.gif);
+	/*background-image: url(../images/map_sample.gif); */
+ }
+.window_panel{
+	width: 230px; 
+	height: 501px; /* should be changed with .td_map.height(-23px) */
+	position:relative;
+	top:-1px;
+	left: 660px; /* should be changed with .window_map.width(-230px) */
+	margin:0px; 
+	padding:0px;
+	filter:alpha(opacity =93); 
+	opacity: 0.93; /* for FireFox */
+ 	background-image: url(../images/panelback.gif); 
+
+}
+.panel-bt {
+	margin: 0px; 
+	padding-top:15px; 
+	padding-bottom:0px; 
+	padding-left:10px; 
+	padding-right:10px; 
+
+	font-family: verdana, Helvetica, sans-serif;
+	font-size: small;
+	color: #FFFFFF;
+	text-align: center;
+	text-decoration: none;
+	line-height: 25px;
+}
+
+panel_showinfo {
+	position:absolute;
+	top:125px;
+}
+
+.window_devinfo {
+	width: 199px;
+	/*OVERFLOW: auto; */
+	margin-top: 10px;
+	margin-left: 10px;
+	margin-right: 10px;
+	padding: 5px; 
+	padding-top:0px;
+	border-width: 1px; 
+	border-color: #999999; 
+	border-style: dotted;
+}
+.text-devinfo {
+	font-family: "Courier New", Courier, mono;
+	font-size: small;
+	color: #FFFFFF;
+}
+.text-value {
+	font-size: small;
+	color: #2CD3FE;
+}
+.text-subtitle {
+	font-family: "Courier New", Courier, mono;
+	font-size: small;
+	font-weight: bold;
+	color: #CCCCCC;
+}
+.panel-bt a:link {
+	color: #333333;
+	text-decoration: none;
+}
+.panel-bt a:visited {
+	color: #333333;
+	text-decoration: none;
+}
+.panel-bt a:hover {
+	color: #CC0000;
+	text-decoration: underline;
+}
+.panel-bt a:active {
+	color: #E6F0FF;
+	text-decoration: none;
+}
+.mainmenu {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: small;
+	font-weight: bold;
+	color: #CCCCCC;
+	vertical-align: middle;
+	text-align: right;
+	padding-left: 20px;
+	padding-bottom: 10px;
+}
+.mainmenu a:link {
+	color: #CCCCCC;
+	text-decoration: none;
+}
+.mainmenu a:visited {
+	color: #CCCCCC;
+	text-decoration: none;
+}
+.mainmenu a:hover {
+	color: #2CD3FE;
+	text-decoration: none;
+}
+.mainmenu a:active {
+	color: #2CD3FE;
+	text-decoration: none;
+}

@@ -1,0 +1,125 @@
+/*
+ * Globals
+ * Modified by Frances 2014-02-20
+ */
+html, body, #map {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+body {
+  padding-top: 50px;
+}
+.table {
+    margin-bottom: 0px;
+}
+.hight-full {
+  height: 100%;
+}
+.width-full{
+  width: 100%;
+}
+.padding-sm-vertical {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.padding-xs {
+  padding: 3px;
+}
+.margin-bottom-zero {
+  margin-bottom: 0 !important;
+}
+
+#loading {
+    position: absolute;
+    width: 220px;
+    height: 19px;
+    top: 50%;
+    left: 50%;
+    margin: -10px 0 0 -110px;
+    z-index: 20001;
+}
+
+.panel-container {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding-top: 50px;
+}
+.panel-container > * {
+  float: right;
+}
+.side-panel {
+  background-color: #555;
+  background-color: rgba(0,0,0,0.6);
+  padding: 10px;
+  height: 100%;
+  width: 270px;
+  overflow-y: auto;
+  position: relative;
+  z-index: 1001;
+}
+.side-panel .input-group {
+  margin-bottom: 10px;
+}
+.control-button {
+  position: relative;
+  z-index: 1001;
+  height: 40px;
+  width: 20px;
+  background-color: #555;
+  background-color: rgba(0,0,0,0.6);
+  border-radius: 4px 0 0 4px;
+  outline: none;
+  padding-top:12px;
+  padding-left:3px;
+}
+.control-button:hover {
+  background-color:black;
+}
+.icon {
+  color: #fff;
+}
+.panel-default {
+  background-color: #444;
+  background-color: rgba(60,60,60,0.7);
+  margin-bottom: 10px;
+}
+.panel-default .content-text {
+  color: #2cd3fe;
+}
+.in-service, .in-service > a {
+  color: #fff;
+}
+.out-service, .out-service > a {
+  color: #ff1800;
+}
+.selected {
+  background-color: #202020;
+}
+.center-chkbox {
+  text-align: center;
+}
+.center-chkbox > label > input[type=checkbox] {
+  float: inherit;
+}
+.btn-icon {
+ height: 16px;
+ width: 16px;
+}
+.olControlAttribution {
+  left: 3px;
+  bottom: 0.3em !important;
+}
+.mapfooter {
+  float: right;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: 1000;
+  pointer-events: none;
+  padding: 0 5px;
+  color: #333;
+  font-size: 11px;
+  display: block;
+}

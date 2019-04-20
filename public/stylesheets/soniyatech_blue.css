@@ -1,0 +1,111 @@
+
+/* Justin Added Above ***************************************************************************/
+
+
+body { margin:0; padding:0; background-color:#fff; }
+body,div,ul,td,li,th,span,span,p,select,input,form,textarea,label { font-size:11px; font-family:arial,helvetica, sans-serif;  }
+div { margin:0; }
+
+
+
+a { color:#0000FF; }
+a b { color:#0000FF; }
+a:hover,a:focus { color:#666;  }
+a strong { color:#f00; }
+a img { border:0; }
+
+
+/* Non HTML */
+
+.table-header {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size:10px;
+	font-weight:bold;
+}
+
+.table-header1 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size:10px;
+	font-weight:bold;
+}
+
+.table-outline {
+	border-style:solid; 
+	border-color:#999999; 
+	border-width:1px;
+	border-bottom-width:1px;
+}
+
+.drpDown1{
+    border-top: 1px solid #9BA2A9;
+    border-bottom: 1px solid #9BA2A9;
+    border-left: 1px solid #9BA2A9;
+    border-right: 1px solid #9BA2A9;
+    background-color: #FFFFFF;
+}
+
+.txtBoxStyle1{
+    border:1px solid #999999; background-color: #FFFFFF;
+    background-image: url('../images/formshadow.gif');
+}
+
+.txtArea1{
+    border-top: 1px solid #999999;
+    border-bottom: 1px solid #999999;
+    border-left: 1px solid #999999;
+    border-right: 1px solid #999999;
+    background-color: #FFFFFF;
+}
+
+.title {
+	color: #333333;
+	font-weight: bold;
+	font-size: 16px;
+}
+
+.title2 {
+	color: #333333;
+	font-weight: bold;
+	font-size: 14px;
+}
+
+.companyFooter  {
+	font-family:Arial, Helvetica, sans-serif;
+	color:#333333;
+	font-size: 11px;
+}
+
+.footerNav  {
+	font-family:Arial, Helvetica, sans-serif;
+	color:#333333;
+	font-size: 11px;
+}
+
+.table-header {
+	font-size: 11px;
+	font-weight: bold;
+}
+
+.required {
+	color:#FF0000;
+}
+
+.bold {
+	font-weight:bold;
+}
+
+.smallTxt {
+	font-size:10px;
+}
+
+.errorHeader {
+	color:#FF0000;
+}
+
+.note1 {
+        font-size: 9px;
+	color: #FF0000;
+}
+
+.notificationBox {width: 100%; background-color: #EEEEEE; border: 1px solid #9A9A9A;}
+
