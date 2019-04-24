@@ -8,7 +8,7 @@ html
     meta(name="description" content="")
     meta(name="author" content="Soniya United Tracking")
     //link(rel="icon" href="icon/icon1.png")
-    title Soniya United Tracking
+    title Soniya | United Tracking
     // boostrap: Latest compiled and minified CSS
     link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous")
     // boostrap: Optional theme
@@ -41,20 +41,23 @@ html
         div(class="container")
 
             form(class="form-signin" method="post" action="/users/login")
-                h4(class="text-center") Please login
+                h4(class="text-center") User login
                 br
                 //input(type="email" id="inputEmail" class="form-control" placeholder="Username or email" required autofocus)
                 //input(type="username" id="inputUsername" class="form-control" placeholder="Username" required autofocus)
                 //input(type="password" id="inputPassword" class="form-control" placeholder="Password" required)
-                input(type="text" class="form-control" name="username" placeholder="Username" required autofocus)
-                input(type="password" class="form-control" name="password" placeholder="Password" required)
+                label(for="uname") Username:
+                input(type="text" class="form-control" id="uname" name="username" placeholder="Username" required autofocus)
+                br
+                label(for="pwd") Password:
+                input(type="password" class="form-control" id="pwd" name="password" placeholder="Password" required)
                 div(class="checkbox")
                     label
                         input(type="checkbox" value="remember-me")
                 br
                 button(type="submit" class="btn btn-lg btn-primary btn-block" value="Submit Button") Login
                 br 
-                a(href='http://soniyatech.com') Forgot username or password?
+                a(href='http://soniyatechnology.com') Forgot username or password?
 
         script.
 
@@ -67,7 +70,7 @@ html
             });
 
             // socket.io
-            var socket = io('http://localhost:3000');
+            var socket = io('http://localhost:8080');
             socket.on('connected', function (data) {
-                socket.emit('broswer greeting app', user_info);
+                socket.emit('a user is in login.pug', user_info);
             });

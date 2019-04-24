@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 var ver = "Ver. 1.00";
-console.log("............. Starting the unitedtracking.com (%s) ...........",ver);
+console.log("............. Starting the new unitedtracking.com (%s) ...........",ver);
 
 /**
  * Module dependencies.

@@ -2,7 +2,7 @@ doctype html
 html
   head
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
-    //title=#{title}
+    title #{title}
     // stylesheet
     link(rel='stylesheet', href='../stylesheets/layout_bootstrap.css')
     // jquery
@@ -121,7 +121,7 @@ body
         });
 
         // socket.io
-        var socket = io('http://localhost:3000');
+        var socket = io('http://localhost:8080');
         socket.on('connected', function (data) {
           socket.emit('broswer greeting app', user_info);
         });

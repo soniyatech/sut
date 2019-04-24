@@ -2,18 +2,18 @@ var express = require('express');
 var router = express.Router();
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
-
 var User = require('../models/user');
 
 // Register
 router.get('/register', function(req, res){
+	console.log("/routes/users.js -> rendering views/register.pug ...");
 	res.render('register');
 });
 
-// Login
+// Login 
 router.get('/login', function(req, res){
-	console.log("users.js -> rendering login page");
-	res.render('login');
+	console.log("/routes/users.js -> rendering views/login.pug ...");
+	res.render('login.pug');
 });
 
 // Register User

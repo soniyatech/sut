@@ -1,0 +1,79 @@
+doctype html
+html
+  head
+  meta(charset="utf-8")
+  meta(http-equiv="X-UA-Compatible" content="IE=edge")
+  meta(name="viewport" content="width=device-width, initial-scale=1")
+  //The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags
+  meta(name="description" content="")
+  meta(name="author" content="Soniya United Tracking")
+  //link(rel="icon" href="icon/icon1.png")
+  title Soniya | United Tracking
+  // boostrap: Latest compiled and minified CSS
+  link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous")
+  // boostrap: Optional theme
+  link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous")
+  // boostrap: Latest compiled and minified JavaScript
+  script(src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous")
+  // font awesome
+  script(src="https://use.fontawesome.com/91828dad67.js")
+
+  //IE10 viewport hack for Surface/desktop Windows 8 bug
+  link(rel="stylesheet" href="../stylesheets/ie10-viewport-bug-workaround.css")
+
+  //Custom styles for this template
+  link(rel="stylesheet" href="../stylesheets/login_bootstrap.css")
+
+  // jquery
+  script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js")
+  // jquery ui
+  link(rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css")
+  script(src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js")
+
+  // socket.io
+  //script(src="https://cdn.socket.io/socket.io-1.4.5.js")
+  script(src="/socket.io/socket.io.js")
+  // userinfo.io
+  script(src="http://cdnjs.cloudflare.com/ajax/libs/userinfo/1.1.0/userinfo.min.js")
+
+  body
+        
+    div(class="container")
+
+      form(class="form-signin" method="post" action="/users/register")
+        h4(class="text-center") Register User Account
+        br
+        label(for="name") Name:
+        input(type="text" class="form-control" id="name" name="name" placeholder="name" required autofocus)
+        br
+        label(for="email") email:
+        input(type="email" class="form-control" id="email" name="email" placeholder="email" required)
+        br
+        label(for="uname") Choose a username:
+        input(type="text" class="form-control" id="uname" name="username" placeholder="Username" required autofocus)
+        br
+        label(for="pwd") Choose a password:
+        input(type="password" class="form-control" id="pwd" name="password" placeholder="Password" required)
+        br
+        label(for="pwd2") Confirm password:
+        input(type="password" class="form-control" id="pwd2" name="password2" placeholder="Confirm password" required)
+        br
+        button(type="submit" class="btn btn-lg btn-primary btn-block" value="Submit Button") Register
+        br 
+        a(href='http://soniyatechnology.com') Need assistance?
+
+    script.
+
+      // userinfo.io
+      var user_info;
+      UserInfo.getInfo(function(data) {
+        user_info = data;
+      }, function(err) {
+        user_info = {userinfo: "error"};
+      });
+
+      // socket.io
+      var socket = io('http://localhost:8080');
+      socket.on('connected', function (data) {
+      socket.emit('a user is in register.pug', user_info);
+      });

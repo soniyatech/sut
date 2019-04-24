@@ -8,10 +8,9 @@ var expressValidator = require('express-validator');
 var flash = require('connect-flash');
 var session = require('express-session');
 var passport = require('passport');
-var LocalStrategy = require('passport-local').Strategy;
+//var LocalStrategy = require('passport-local').Strategy;
 
-var root = require('./routes/index');
-//var user = require('./routes/user');
+var root = require('./routes/root');
 var users = require('./routes/users');
 
 // init express as app
@@ -76,7 +75,6 @@ app.use(function (req, res, next) {
 });
 
 app.use('/', root);
-//app.use('/user', user);
 app.use('/users', users);
 
 // catch 404 and forward to error handler
@@ -115,15 +113,15 @@ app.use(function(err, req, res, next) {
 
 /* --------------------------------- my services --------------------------------- */
 
-var util = require('util');
+//var util = require('util');
 var format = require('util').format;
-var assert = require('assert');
+//var assert = require('assert');
 var EventEmitter = require('events').EventEmitter;
 var appEmitter = new EventEmitter();
 
 
 
-                /**** Network - socket.io ****/
+/**** Network - socket.io ****/
 
 var http_server = require('http').Server(app);
 var io = require('socket.io')(http_server);
@@ -146,7 +144,7 @@ io.on('reconnect', function (socket) {
 
 
 
-                  /**** Network - UDP ****/
+/**** Network - UDP ****/
 
 var UDP_listening_port = 16604;
 var UDP_server = function(UDP_listening_port){
@@ -190,7 +188,7 @@ var UDP_server = function(UDP_listening_port){
 };
 
 
-               /**** GEO - reverse-geo */
+/**** GEO - reverse-geo */
 
 var request = require('request');
 var geo_server_ip = "64.71.155.103";
@@ -213,7 +211,7 @@ var reversegeo = function (reading) {
 };
 
 
-                /**** Device - Punttoo */
+/**** Device - Punttoo */
 
 var move_decimal = require('move-decimal-point');
 var distance_unit = "imperial";
@@ -398,22 +396,26 @@ var Punttoo = function () {
 
 
 
-                /**** Database - MongoDB ****/
+/**** Database - MongoDB ****/
 
 var mongodb;
 //var MongoClient = require('mongodb').MongoClient;
 var mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
-var mongo_server_ip = '162.235.120.179';
+/* for connecting to standlaone MongoDB server
+var mongo_server = '162.235.120.179';
 var mongo_server_port = 27017;
-var mongo_user = encodeURIComponent('unitedtracking');
-var mongo_password = encodeURIComponent('j3byrcc.');
-var mongo_authSource = 'unitedtracking_db';
+var mongo_user = encodeURIComponent('united');
+var mongo_password = encodeURIComponent('j3byrcc');
+var mongo_authSource = 'united';
 var mongo_authMechanism = 'DEFAULT';
-var mongo_uri = format('mongodb://%s:%s@%s:%d/%s?authMechanism=%s', mongo_user, mongo_password, mongo_server_ip, mongo_server_port, mongo_authSource, mongo_authMechanism);
+var mongo_uri = format('mongodb://%s:%s@%s:%d/%s?authMechanism=%s', mongo_user, mongo_password, mongo_server, mongo_server_port, mongo_authSource, mongo_authMechanism);
+*/
+/* for connecting to MongoDB Atlas*/
+var mongo_uri = 'mongodb+srv://united:j3byrcc@cluster0-ng5j6.azure.mongodb.net/united?retryWrites=true';
 
-// mongoose connection to DB
-mongoose.connect(mongo_uri,{ useNewUrlParser: true });
+/* establish MongoDB connection */
+mongoose.connect(mongo_uri,{useNewUrlParser: true, useCreateIndex: true});
 mongodb = mongoose.connection;
 mongodb.on('error', console.error.bind(console, 'mongodb connection error:'));
 mongodb.once('open', function() {
@@ -434,6 +436,8 @@ var Punttoo = new Punttoo();
 appEmitter.on("incoming_UDP_Punttoo_reading_parsed", function(reading) {
   io.emit('new reading to broswer', reading); //socket.io emits new reading (to layout.pug to update)
   Signal_reading.mongo_saveOneReading(reading); //save this reading to MongoDB
+  var rgeo_address = reversegeo(reading);
+  
 });
 
 appEmitter.on("incoming_UDP_Punttoo_ack_parsed", function(ack) {
